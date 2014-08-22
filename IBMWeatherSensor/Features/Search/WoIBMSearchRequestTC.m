@@ -50,32 +50,19 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     [self showActivityIndicator];
 }
 
-- (void)setLocationFromPrediction:(WoIBMGooglePlace *)place
+- (NSString *)setLocationFromPrediction:(WoIBMGooglePlace *)place
 {
     WoIBMGoogleTerms *cityTerms = place.terms[1];
     WoIBMGoogleTerms *stateTerms = place.terms[2];
-    NSString *cityState = [NSString stringWithFormat:@"%@/%@", stateTerms.value, cityTerms.value];
-    NSLog(@"terms %@", cityState);
-    [self getForecast:cityState];
+    return [NSString stringWithFormat:@"%@/%@", stateTerms.value, cityTerms.value];
+    
 }
 
-- (void)getForecast:(NSString *)placemark
-{
-    [self showActivityIndicator];
-    [[WoIBMDataController sharedData] getForecast:placemark success:^(WoIBMForecast *forecast) {
-        NSLog(@"got a successful forecast back");
-        [self configureForecastView:forecast];
-        [self hideActivityIndicator];
-    } failure:^(WoIBMError *error) {
-        //TODO: Show error
-        [self hideActivityIndicator];
-    }];
-}
 
-- (void)configureForecastView:(WoIBMForecast *)forecast
+- (void)configureForecastView:(NSString *)cityStateString
 {
     WoIBMForecastVC *forecastVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WoIBMForecastVC"];
-    forecastVC.forecast = forecast;
+    forecastVC.cityStateString = cityStateString;
     [self.navigationController pushViewController:forecastVC animated:YES];
 }
 
@@ -125,7 +112,7 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 {
     if (indexPath.section == WoIBMSearchAddressTableViewSectionSearchAsYouTypeResult) {
        //TODO: pull the info out of the object and use that instewad of current location
-        [self setLocationFromPrediction:self.predictionsArray[indexPath.row]];
+        [self configureForecastView:[self setLocationFromPrediction:self.predictionsArray[indexPath.row]]];
     }
     else if (indexPath.section == WoIBMSearchAddressTableViewSectionCurrentLocation)
     {
@@ -149,7 +136,7 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
         else {
             if (!self.locationUpdated) {
                 CLPlacemark *placemark = [placemarks lastObject];
-                [self didObtainLocationPlacemark:placemark];
+                [self configureForecastView:[self didObtainLocationPlacemark:placemark]];
                 self.locationUpdated = YES;
             }
            
@@ -163,19 +150,16 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     [self didFailToObtainLocation];
-    NSLog(@"error %@", error.localizedDescription);
     [self.locationManager stopUpdatingLocation];
     [self hideActivityIndicator];
 }
 
-- (void)didObtainLocationPlacemark:(CLPlacemark *)placemark
+- (NSString *)didObtainLocationPlacemark:(CLPlacemark *)placemark
 {
     NSDictionary *addressDict = placemark.addressDictionary;
-    NSLog(@"address Dict %@", addressDict);
     NSString *cityState = [NSString stringWithFormat:@"%@/%@", addressDict[@"State"], addressDict[@"City"]];
     //placemark.location.coordinate;
-    [self getForecast:cityState];
-   // [self configureForecastView];
+    return cityState;
 }
 
 - (void)didFailToObtainLocation
@@ -202,10 +186,6 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 }
 
 #pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    NSLog(@"not sure yet what to do here");
-}
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -226,15 +206,16 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue destinationViewController] isKindOfClass:[WoIBMForecastVC class]]) {
+        
+    }
 }
-*/
+
 
 @end

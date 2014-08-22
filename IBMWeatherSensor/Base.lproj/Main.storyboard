@@ -15,8 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="48B-lE-eda">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zVA-7w-DUw">
+                                <rect key="frame" x="0.0" y="40" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cne-8u-Q7q">
+                                    <size key="itemSize" width="276" height="424"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bjn-tk-VSq">
+                                        <rect key="frame" x="22" y="0.0" width="276" height="424"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="276" height="424"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zVA-7w-DUw" firstAttribute="leading" secondItem="MvG-ad-8VU" secondAttribute="trailing" constant="-320" id="Ge1-Mt-4t6"/>
+                            <constraint firstAttribute="bottom" secondItem="zVA-7w-DUw" secondAttribute="bottom" constant="-40" id="P3U-jS-H6f"/>
+                            <constraint firstAttribute="trailing" secondItem="zVA-7w-DUw" secondAttribute="trailing" id="TRt-Xg-csN"/>
+                            <constraint firstItem="zVA-7w-DUw" firstAttribute="top" secondItem="MvG-ad-8VU" secondAttribute="bottom" constant="20" id="Txn-Pw-eZ3"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Exe-pR-SBX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it5-5c-fkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,15 +69,15 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="kSearchRequestCellIdentifier" textLabel="Tms-gf-Lpy" style="IBUITableViewCellStyleDefault" id="YP2-gQ-gep">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="kSearchRequestCellIdentifier" textLabel="Tms-gf-Lpy" style="IBUITableViewCellStyleDefault" id="YP2-gQ-gep">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YP2-gQ-gep" id="4QR-UK-g49">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tms-gf-Lpy">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -11,6 +11,8 @@
 
 @interface WoIBMForecastVC : UIViewController
 
-@property (nonatomic, strong) WoIBMForecast *forecast;
+@property (nonatomic, copy) NSString *cityStateString;
+
+- (void)getForecast:(NSString *)cityStateString;
 
 @end

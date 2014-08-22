@@ -29,7 +29,7 @@
     [WoIBMNetworking requestWithEndpoint:forcastEndpoint method:WoIBMRequestMethodGET params:nil success: ^(id responseObject){
         WoIBMForecast *forecast = [WoIBMForecast modelFromJSONDictionary:responseObject[@"forecast"][@"txt_forecast"]];
        // NSLog(@"responseObject %@", forecast);
-        NSLog(@"txt forecast %@", responseObject[@"forecast"][@"txt_forecast"]);
+       // NSLog(@"txt forecast %@", responseObject[@"forecast"][@"txt_forecast"]);
         if (success) {
             success(forecast);
         }
