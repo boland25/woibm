@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WoIBMForecast.h"
 
 @interface WoIBMForecastVC : UIViewController
+
+@property (nonatomic, strong) WoIBMForecast *forecast;
 
 @end

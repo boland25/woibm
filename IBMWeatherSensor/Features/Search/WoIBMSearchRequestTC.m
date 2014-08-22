@@ -11,6 +11,9 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "WoIBMDataController.h"
 #import "WoIBMForecastVC.h"
+#import "WoIBMGooglePlace.h"
+#import "WOIBMGoogleTerms.h"
+#import "SAYTManager.h"
 
 static NSString *const kSearchRequestCellIdentifier = @"kSearchRequestCellIdentifier";
 
@@ -19,11 +22,12 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     WoIBMSearchAddressTableViewSectionSearchAsYouTypeResult
 };
 
-@interface WoIBMSearchRequestTC () <CLLocationManagerDelegate>
+@interface WoIBMSearchRequestTC () <CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) BOOL locationUpdated;
+@property (nonatomic, strong) NSArray *predictionsArray;
 
 @end
 
@@ -33,47 +37,8 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 {
     [super viewDidLoad];
     self.locationUpdated = NO;
+    [self configureSearchAsYouType];
     
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 1;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSearchRequestCellIdentifier forIndexPath:indexPath];
-    if (indexPath.section == WoIBMSearchAddressTableViewSectionCurrentLocation) {
-        cell.textLabel.text = @"Use Current Location";
-    }
-
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == WoIBMSearchAddressTableViewSectionSearchAsYouTypeResult) {
-       //TODO: pull the info out of the object and use that instewad of current location
-    }
-    else if (indexPath.section == WoIBMSearchAddressTableViewSectionCurrentLocation)
-    {
-        [self selectCurrentLocation];
-    }
-
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)selectCurrentLocation
@@ -85,13 +50,90 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     [self showActivityIndicator];
 }
 
-- (void)getForecast:(CLPlacemark *)placemark
+- (void)setLocationFromPrediction:(WoIBMGooglePlace *)place
 {
-    [[WoIBMDataController sharedData] getForecast:placemark success:^(NSArray *feeds) {
+    WoIBMGoogleTerms *cityTerms = place.terms[1];
+    WoIBMGoogleTerms *stateTerms = place.terms[2];
+    NSString *cityState = [NSString stringWithFormat:@"%@/%@", stateTerms.value, cityTerms.value];
+    NSLog(@"terms %@", cityState);
+    [self getForecast:cityState];
+}
+
+- (void)getForecast:(NSString *)placemark
+{
+    [self showActivityIndicator];
+    [[WoIBMDataController sharedData] getForecast:placemark success:^(WoIBMForecast *forecast) {
         NSLog(@"got a successful forecast back");
+        [self configureForecastView:forecast];
+        [self hideActivityIndicator];
     } failure:^(WoIBMError *error) {
         //TODO: Show error
+        [self hideActivityIndicator];
     }];
+}
+
+- (void)configureForecastView:(WoIBMForecast *)forecast
+{
+    WoIBMForecastVC *forecastVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WoIBMForecastVC"];
+    forecastVC.forecast = forecast;
+    [self.navigationController pushViewController:forecastVC animated:YES];
+}
+
+- (void)configureSearchAsYouType
+{
+    [SAYTManager sharedManager].successBlock = ^void (NSArray *predictions) {
+        self.predictionsArray = predictions;
+        [self.tableView reloadData];
+    };
+    [SAYTManager sharedManager].failureBlock = ^void (NSArray *predictions) {
+        [self resetToDefault];
+    };
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == WoIBMSearchAddressTableViewSectionCurrentLocation) {
+        return 1;
+    }else {
+        return self.predictionsArray.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSearchRequestCellIdentifier forIndexPath:indexPath];
+    if (indexPath.section == WoIBMSearchAddressTableViewSectionCurrentLocation) {
+        cell.textLabel.text = @"Use Current Location";
+    } else {
+        WoIBMGooglePlace *place = self.predictionsArray[indexPath.row];
+        cell.textLabel.text = place.gaDescription;
+    }
+
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == WoIBMSearchAddressTableViewSectionSearchAsYouTypeResult) {
+       //TODO: pull the info out of the object and use that instewad of current location
+        [self setLocationFromPrediction:self.predictionsArray[indexPath.row]];
+    }
+    else if (indexPath.section == WoIBMSearchAddressTableViewSectionCurrentLocation)
+    {
+        [self selectCurrentLocation];
+    }
+
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - CLLocationManagerDelegate methods
@@ -130,8 +172,9 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 {
     NSDictionary *addressDict = placemark.addressDictionary;
     NSLog(@"address Dict %@", addressDict);
+    NSString *cityState = [NSString stringWithFormat:@"%@/%@", addressDict[@"State"], addressDict[@"City"]];
     //placemark.location.coordinate;
-    [self getForecast:placemark];
+    [self getForecast:cityState];
    // [self configureForecastView];
 }
 
@@ -140,14 +183,6 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     //TODO: show errors in window
     
 }
-
-- (void)configureForecastView
-{
-    WoIBMForecastVC *forecastVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WoIBMForecastVC"];
-
-    [self.navigationController pushViewController:forecastVC animated:YES];
-}
-
 
 #pragma mark - Activity Indictators
 
@@ -159,6 +194,35 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 - (void)hideActivityIndicator
 {
     [SVProgressHUD dismiss];
+}
+
+- (void)resetToDefault
+{
+    [self.tableView reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"not sure yet what to do here");
+}
+
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    [[SAYTManager sharedManager] setAddressInput:self.searchBar.text];
+    if (range.length == 1 && range.location == 0) {
+        [[SAYTManager sharedManager] cancel];
+        [self resetToDefault];
+    }
+    return YES;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    //NOTE: this handles what happens when a user clears the text, its stops and clears the timer
+    if ([searchText isEqualToString:@""]) {
+        [self resetToDefault];
+    }
 }
 
 

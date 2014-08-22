@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "WoIBMError.h"
 #import <CoreLocation/CoreLocation.h>
+#import "WoIBMForecast.h"
 
 @interface WoIBMDataController : NSObject
 
 + (instancetype)sharedData;
 
-- (void)getForecast:(CLPlacemark *)placemark success:(void (^)(NSArray *feeds))success failure:(void (^)(WoIBMError *error))failure;
+- (void)getForecast:(NSString *)placemark success:(void (^)(WoIBMForecast *forecast))success failure:(void (^)(WoIBMError *error))failure;
 
 
 @end

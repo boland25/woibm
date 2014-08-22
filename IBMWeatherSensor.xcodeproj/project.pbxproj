@@ -24,6 +24,9 @@
 		3A8F5A2119A537400016D49D /* WoIBMSearchRequestTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2019A537400016D49D /* WoIBMSearchRequestTC.m */; };
 		3A8F5A2419A53B7F0016D49D /* WoIBMForecastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2319A53B7F0016D49D /* WoIBMForecastVC.m */; };
 		3A8F5A2719A6E50E0016D49D /* WoIBMForecastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2619A6E50E0016D49D /* WoIBMForecastDay.m */; };
+		3A8F5A2B19A6EEFB0016D49D /* SAYTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2A19A6EEFB0016D49D /* SAYTManager.m */; };
+		3A8F5A2F19A6F0AA0016D49D /* WoIBMGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2E19A6F0AA0016D49D /* WoIBMGooglePlace.m */; };
+		3A8F5A3219A6F8620016D49D /* WoIBMGoogleTerms.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A3119A6F8620016D49D /* WoIBMGoogleTerms.m */; };
 		3AF014EE19A53199005EE618 /* WoIBMDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF014ED19A53199005EE618 /* WoIBMDataController.m */; };
 		FE68B6A85D7C486FBD545AD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 988097D4761043398C151EB3 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,12 @@
 		3A8F5A2319A53B7F0016D49D /* WoIBMForecastVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMForecastVC.m; sourceTree = "<group>"; };
 		3A8F5A2519A6E50E0016D49D /* WoIBMForecastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMForecastDay.h; sourceTree = "<group>"; };
 		3A8F5A2619A6E50E0016D49D /* WoIBMForecastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMForecastDay.m; sourceTree = "<group>"; };
+		3A8F5A2919A6EEFB0016D49D /* SAYTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAYTManager.h; sourceTree = "<group>"; };
+		3A8F5A2A19A6EEFB0016D49D /* SAYTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAYTManager.m; sourceTree = "<group>"; };
+		3A8F5A2D19A6F0AA0016D49D /* WoIBMGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMGooglePlace.h; sourceTree = "<group>"; };
+		3A8F5A2E19A6F0AA0016D49D /* WoIBMGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMGooglePlace.m; sourceTree = "<group>"; };
+		3A8F5A3019A6F8620016D49D /* WoIBMGoogleTerms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMGoogleTerms.h; sourceTree = "<group>"; };
+		3A8F5A3119A6F8620016D49D /* WoIBMGoogleTerms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMGoogleTerms.m; sourceTree = "<group>"; };
 		3AF014EC19A53199005EE618 /* WoIBMDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMDataController.h; sourceTree = "<group>"; };
 		3AF014ED19A53199005EE618 /* WoIBMDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMDataController.m; sourceTree = "<group>"; };
 		988097D4761043398C151EB3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +178,7 @@
 		3A8F5A0419A531140016D49D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				3A8F5A2819A6EEE70016D49D /* SAYP */,
 				3A8F5A1F19A537400016D49D /* WoIBMSearchRequestTC.h */,
 				3A8F5A2019A537400016D49D /* WoIBMSearchRequestTC.m */,
 			);
@@ -217,6 +227,7 @@
 		3A8F5A0919A531F20016D49D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3A8F5A2C19A6F0730016D49D /* SAYP */,
 				3A8F5A1C19A5359D0016D49D /* WoIBMForecast.h */,
 				3A8F5A1D19A5359D0016D49D /* WoIBMForecast.m */,
 				3A8F5A2519A6E50E0016D49D /* WoIBMForecastDay.h */,
@@ -242,6 +253,26 @@
 				3A8F5A1B19A534A40016D49D /* WoIBMConstants.h */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		3A8F5A2819A6EEE70016D49D /* SAYP */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A2919A6EEFB0016D49D /* SAYTManager.h */,
+				3A8F5A2A19A6EEFB0016D49D /* SAYTManager.m */,
+			);
+			path = SAYP;
+			sourceTree = "<group>";
+		};
+		3A8F5A2C19A6F0730016D49D /* SAYP */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A2D19A6F0AA0016D49D /* WoIBMGooglePlace.h */,
+				3A8F5A2E19A6F0AA0016D49D /* WoIBMGooglePlace.m */,
+				3A8F5A3019A6F8620016D49D /* WoIBMGoogleTerms.h */,
+				3A8F5A3119A6F8620016D49D /* WoIBMGoogleTerms.m */,
+			);
+			path = SAYP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,9 +390,12 @@
 				3A8F5A0F19A532190016D49D /* WoIBMError.m in Sources */,
 				3A8F5A2119A537400016D49D /* WoIBMSearchRequestTC.m in Sources */,
 				3A8F5A2719A6E50E0016D49D /* WoIBMForecastDay.m in Sources */,
+				3A8F5A3219A6F8620016D49D /* WoIBMGoogleTerms.m in Sources */,
+				3A8F5A2F19A6F0AA0016D49D /* WoIBMGooglePlace.m in Sources */,
 				3A8F5A2419A53B7F0016D49D /* WoIBMForecastVC.m in Sources */,
 				3A8F5A0C19A532040016D49D /* WoIBMModel.m in Sources */,
 				3A8F59DD19A52C420016D49D /* GBAppDelegate.m in Sources */,
+				3A8F5A2B19A6EEFB0016D49D /* SAYTManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
