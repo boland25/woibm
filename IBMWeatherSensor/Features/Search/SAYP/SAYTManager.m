@@ -98,7 +98,7 @@ static NSString *const GooglePlacesAPIKey = @"AIzaSyCnwAOO6pXBzt_CGDWgd-Tcvs1RSM
     
     [manager GET:GooglePlacesAPIURLString parameters:[self createParams:queryString] success: ^(AFHTTPRequestOperation *operation, id responseObject) {
         //parse the locations stuff
-        NSLog(@"respsonse Object %@", responseObject);
+      //  NSLog(@"respsonse Object %@", responseObject);
         if (self.successBlock) {
             NSArray *predictions = [WoIBMGooglePlace arrayFromJSONArray:[(NSDictionary *)responseObject contains : @"predictions"]];
             self.successBlock(predictions);
