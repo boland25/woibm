@@ -9,9 +9,13 @@
 #import "WoIBMForecastVC.h"
 #import "WoIBMDataController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "WoIBMForecastCell.h"
+
+static NSString *const WoIBMForecastCollectionCell = @"WoIBMForecastCell";
 
 @interface WoIBMForecastVC ()
 
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) WoIBMForecast *forecast;
 
 @end
@@ -21,13 +25,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self getForecast:self.cityStateString];
 }
 
 - (void)getForecast:(NSString *)cityStateString
 {
     [self showActivityIndicator];
     [[WoIBMDataController sharedData] getForecast:cityStateString success:^(WoIBMForecast *forecast) {
+        self.forecast = forecast;
         [self configureForecastView];
         [self hideActivityIndicator];
     } failure:^(WoIBMError *error) {
@@ -38,7 +43,22 @@
 
 - (void)configureForecastView
 {
-    
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    [self.collectionView reloadData];
+}
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    WoIBMForecastCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:WoIBMForecastCollectionCell forIndexPath:indexPath];
+    [cell layoutWithForecastDay:self.forecast.forecastDay[indexPath.row]];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.forecast.forecastDay count];
 }
 
 #pragma mark - Activity Indictators

@@ -52,9 +52,9 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 
 - (NSString *)setLocationFromPrediction:(WoIBMGooglePlace *)place
 {
-    WoIBMGoogleTerms *cityTerms = place.terms[1];
-    WoIBMGoogleTerms *stateTerms = place.terms[2];
-    return [NSString stringWithFormat:@"%@/%@", stateTerms.value, cityTerms.value];
+    WoIBMGoogleTerms *cityTerms = place.terms[place.terms.count-3];
+    WoIBMGoogleTerms *stateTerms = place.terms[place.terms.count-2];
+    return [[WoIBMDataController sharedData] createCityString:stateTerms.value city:cityTerms.value];
     
 }
 
@@ -77,7 +77,7 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     };
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -107,6 +107,8 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
     
     return cell;
 }
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,9 +159,7 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
 - (NSString *)didObtainLocationPlacemark:(CLPlacemark *)placemark
 {
     NSDictionary *addressDict = placemark.addressDictionary;
-    NSString *cityState = [NSString stringWithFormat:@"%@/%@", addressDict[@"State"], addressDict[@"City"]];
-    //placemark.location.coordinate;
-    return cityState;
+    return [[WoIBMDataController sharedData] createCityString:addressDict[@"State"] city:addressDict[@"City"]];
 }
 
 - (void)didFailToObtainLocation
@@ -204,18 +204,5 @@ typedef NS_ENUM (NSInteger, WoIBMSearchAddressTableViewSection) {
         [self resetToDefault];
     }
 }
-
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue destinationViewController] isKindOfClass:[WoIBMForecastVC class]]) {
-        
-    }
-}
-
 
 @end

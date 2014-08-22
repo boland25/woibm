@@ -17,5 +17,6 @@
 
 - (void)getForecast:(NSString *)placemark success:(void (^)(WoIBMForecast *forecast))success failure:(void (^)(WoIBMError *error))failure;
 
+- (NSString *)createCityString:(NSString *)state city:(NSString *)city;
 
 @end

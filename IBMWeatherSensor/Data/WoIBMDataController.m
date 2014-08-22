@@ -42,4 +42,9 @@
     return [NSString stringWithFormat:@"%@%@.json", WOIBM_FORECAST, placemark];
 }
 
+- (NSString *)createCityString:(NSString *)state city:(NSString *)city
+{
+    return [NSString stringWithFormat:@"%@/%@", [state stringByReplacingOccurrencesOfString:@" " withString:@"_"], [city stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+}
+
 @end
