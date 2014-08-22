@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A8F59CD19A52C420016D49D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F59CC19A52C420016D49D /* Foundation.framework */; };
+		3A8F59CF19A52C420016D49D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F59CE19A52C420016D49D /* CoreGraphics.framework */; };
+		3A8F59D119A52C420016D49D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F59D019A52C420016D49D /* UIKit.framework */; };
+		3A8F59D719A52C420016D49D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F59D519A52C420016D49D /* InfoPlist.strings */; };
+		3A8F59D919A52C420016D49D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F59D819A52C420016D49D /* main.m */; };
+		3A8F59DD19A52C420016D49D /* GBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F59DC19A52C420016D49D /* GBAppDelegate.m */; };
+		3A8F59E019A52C420016D49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F59DE19A52C420016D49D /* Main.storyboard */; };
+		3A8F59E519A52C420016D49D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F59E419A52C420016D49D /* Images.xcassets */; };
+		3A8F5A0C19A532040016D49D /* WoIBMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A0B19A532040016D49D /* WoIBMModel.m */; };
+		3A8F5A0F19A532190016D49D /* WoIBMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A0E19A532190016D49D /* WoIBMError.m */; };
+		3A8F5A1219A533890016D49D /* WoIBMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A1119A533890016D49D /* WoIBMNetworking.m */; };
+		3A8F5A1819A534560016D49D /* NSDictionary+NilValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A1519A534560016D49D /* NSDictionary+NilValue.m */; };
+		3A8F5A1919A534560016D49D /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A1719A534560016D49D /* UIColor+RandomColor.m */; };
+		3A8F5A1E19A5359D0016D49D /* WoIBMForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A1D19A5359D0016D49D /* WoIBMForecast.m */; };
+		3A8F5A2119A537400016D49D /* WoIBMSearchRequestTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2019A537400016D49D /* WoIBMSearchRequestTC.m */; };
+		3A8F5A2419A53B7F0016D49D /* WoIBMForecastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2319A53B7F0016D49D /* WoIBMForecastVC.m */; };
+		3A8F5A2719A6E50E0016D49D /* WoIBMForecastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F5A2619A6E50E0016D49D /* WoIBMForecastDay.m */; };
+		3AF014EE19A53199005EE618 /* WoIBMDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF014ED19A53199005EE618 /* WoIBMDataController.m */; };
+		FE68B6A85D7C486FBD545AD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 988097D4761043398C151EB3 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A8F59C919A52C420016D49D /* IBMWeatherSensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBMWeatherSensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8F59CC19A52C420016D49D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A8F59CE19A52C420016D49D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3A8F59D019A52C420016D49D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3A8F59D419A52C420016D49D /* IBMWeatherSensor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IBMWeatherSensor-Info.plist"; sourceTree = "<group>"; };
+		3A8F59D619A52C420016D49D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A8F59D819A52C420016D49D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A8F59DA19A52C420016D49D /* IBMWeatherSensor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IBMWeatherSensor-Prefix.pch"; sourceTree = "<group>"; };
+		3A8F59DB19A52C420016D49D /* GBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBAppDelegate.h; sourceTree = "<group>"; };
+		3A8F59DC19A52C420016D49D /* GBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBAppDelegate.m; sourceTree = "<group>"; };
+		3A8F59DF19A52C420016D49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A8F59E419A52C420016D49D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A8F59EB19A52C420016D49D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3A8F59F319A52C420016D49D /* IBMWeatherSensorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IBMWeatherSensorTests-Info.plist"; sourceTree = "<group>"; };
+		3A8F59F519A52C420016D49D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A8F59F719A52C420016D49D /* IBMWeatherSensorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBMWeatherSensorTests.m; sourceTree = "<group>"; };
+		3A8F5A0A19A532040016D49D /* WoIBMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMModel.h; sourceTree = "<group>"; };
+		3A8F5A0B19A532040016D49D /* WoIBMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMModel.m; sourceTree = "<group>"; };
+		3A8F5A0D19A532190016D49D /* WoIBMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMError.h; sourceTree = "<group>"; };
+		3A8F5A0E19A532190016D49D /* WoIBMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMError.m; sourceTree = "<group>"; };
+		3A8F5A1019A533890016D49D /* WoIBMNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMNetworking.h; sourceTree = "<group>"; };
+		3A8F5A1119A533890016D49D /* WoIBMNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMNetworking.m; sourceTree = "<group>"; };
+		3A8F5A1419A534560016D49D /* NSDictionary+NilValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NilValue.h"; sourceTree = "<group>"; };
+		3A8F5A1519A534560016D49D /* NSDictionary+NilValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NilValue.m"; sourceTree = "<group>"; };
+		3A8F5A1619A534560016D49D /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
+		3A8F5A1719A534560016D49D /* UIColor+RandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
+		3A8F5A1B19A534A40016D49D /* WoIBMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMConstants.h; sourceTree = "<group>"; };
+		3A8F5A1C19A5359D0016D49D /* WoIBMForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMForecast.h; sourceTree = "<group>"; };
+		3A8F5A1D19A5359D0016D49D /* WoIBMForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMForecast.m; sourceTree = "<group>"; };
+		3A8F5A1F19A537400016D49D /* WoIBMSearchRequestTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMSearchRequestTC.h; sourceTree = "<group>"; };
+		3A8F5A2019A537400016D49D /* WoIBMSearchRequestTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMSearchRequestTC.m; sourceTree = "<group>"; };
+		3A8F5A2219A53B7F0016D49D /* WoIBMForecastVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMForecastVC.h; sourceTree = "<group>"; };
+		3A8F5A2319A53B7F0016D49D /* WoIBMForecastVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMForecastVC.m; sourceTree = "<group>"; };
+		3A8F5A2519A6E50E0016D49D /* WoIBMForecastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMForecastDay.h; sourceTree = "<group>"; };
+		3A8F5A2619A6E50E0016D49D /* WoIBMForecastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMForecastDay.m; sourceTree = "<group>"; };
+		3AF014EC19A53199005EE618 /* WoIBMDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoIBMDataController.h; sourceTree = "<group>"; };
+		3AF014ED19A53199005EE618 /* WoIBMDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoIBMDataController.m; sourceTree = "<group>"; };
+		988097D4761043398C151EB3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02B7E71443E42458386E30E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A8F59C619A52C420016D49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8F59CF19A52C420016D49D /* CoreGraphics.framework in Frameworks */,
+				3A8F59D119A52C420016D49D /* UIKit.framework in Frameworks */,
+				3A8F59CD19A52C420016D49D /* Foundation.framework in Frameworks */,
+				FE68B6A85D7C486FBD545AD1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A8F59C019A52C420016D49D = {
+			isa = PBXGroup;
+			children = (
+				3A8F59D219A52C420016D49D /* IBMWeatherSensor */,
+				3A8F59F119A52C420016D49D /* IBMWeatherSensorTests */,
+				3A8F59CB19A52C420016D49D /* Frameworks */,
+				3A8F59CA19A52C420016D49D /* Products */,
+				C02B7E71443E42458386E30E /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		3A8F59CA19A52C420016D49D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59C919A52C420016D49D /* IBMWeatherSensor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A8F59CB19A52C420016D49D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59CC19A52C420016D49D /* Foundation.framework */,
+				3A8F59CE19A52C420016D49D /* CoreGraphics.framework */,
+				3A8F59D019A52C420016D49D /* UIKit.framework */,
+				3A8F59EB19A52C420016D49D /* XCTest.framework */,
+				988097D4761043398C151EB3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A8F59D219A52C420016D49D /* IBMWeatherSensor */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A0119A531140016D49D /* Data */,
+				3A8F5A0219A531140016D49D /* Features */,
+				3A8F5A0519A531140016D49D /* Models */,
+				3A8F5A0619A531140016D49D /* Utility */,
+				3A8F59DB19A52C420016D49D /* GBAppDelegate.h */,
+				3A8F59DC19A52C420016D49D /* GBAppDelegate.m */,
+				3A8F59E419A52C420016D49D /* Images.xcassets */,
+				3A8F59D319A52C420016D49D /* Supporting Files */,
+			);
+			path = IBMWeatherSensor;
+			sourceTree = "<group>";
+		};
+		3A8F59D319A52C420016D49D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59D419A52C420016D49D /* IBMWeatherSensor-Info.plist */,
+				3A8F59D519A52C420016D49D /* InfoPlist.strings */,
+				3A8F59D819A52C420016D49D /* main.m */,
+				3A8F59DA19A52C420016D49D /* IBMWeatherSensor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A8F59F119A52C420016D49D /* IBMWeatherSensorTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59F719A52C420016D49D /* IBMWeatherSensorTests.m */,
+				3A8F59F219A52C420016D49D /* Supporting Files */,
+			);
+			path = IBMWeatherSensorTests;
+			sourceTree = "<group>";
+		};
+		3A8F59F219A52C420016D49D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59F319A52C420016D49D /* IBMWeatherSensorTests-Info.plist */,
+				3A8F59F419A52C420016D49D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A8F5A0119A531140016D49D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3AF014EC19A53199005EE618 /* WoIBMDataController.h */,
+				3AF014ED19A53199005EE618 /* WoIBMDataController.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3A8F5A0219A531140016D49D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F59DE19A52C420016D49D /* Main.storyboard */,
+				3A8F5A0319A531140016D49D /* Forecast */,
+				3A8F5A0419A531140016D49D /* Search */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3A8F5A0319A531140016D49D /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A2219A53B7F0016D49D /* WoIBMForecastVC.h */,
+				3A8F5A2319A53B7F0016D49D /* WoIBMForecastVC.m */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		3A8F5A0419A531140016D49D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1F19A537400016D49D /* WoIBMSearchRequestTC.h */,
+				3A8F5A2019A537400016D49D /* WoIBMSearchRequestTC.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3A8F5A0519A531140016D49D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A0819A531F20016D49D /* Common */,
+				3A8F5A0919A531F20016D49D /* Features */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A8F5A0619A531140016D49D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1A19A534810016D49D /* Constants */,
+				3A8F5A1319A5342E0016D49D /* Categories */,
+				3A8F5A0719A531140016D49D /* Networking */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3A8F5A0719A531140016D49D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1019A533890016D49D /* WoIBMNetworking.h */,
+				3A8F5A1119A533890016D49D /* WoIBMNetworking.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3A8F5A0819A531F20016D49D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A0A19A532040016D49D /* WoIBMModel.h */,
+				3A8F5A0B19A532040016D49D /* WoIBMModel.m */,
+				3A8F5A0D19A532190016D49D /* WoIBMError.h */,
+				3A8F5A0E19A532190016D49D /* WoIBMError.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3A8F5A0919A531F20016D49D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1C19A5359D0016D49D /* WoIBMForecast.h */,
+				3A8F5A1D19A5359D0016D49D /* WoIBMForecast.m */,
+				3A8F5A2519A6E50E0016D49D /* WoIBMForecastDay.h */,
+				3A8F5A2619A6E50E0016D49D /* WoIBMForecastDay.m */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3A8F5A1319A5342E0016D49D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1419A534560016D49D /* NSDictionary+NilValue.h */,
+				3A8F5A1519A534560016D49D /* NSDictionary+NilValue.m */,
+				3A8F5A1619A534560016D49D /* UIColor+RandomColor.h */,
+				3A8F5A1719A534560016D49D /* UIColor+RandomColor.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3A8F5A1A19A534810016D49D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3A8F5A1B19A534A40016D49D /* WoIBMConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A8F59C819A52C420016D49D /* IBMWeatherSensor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A8F59FB19A52C420016D49D /* Build configuration list for PBXNativeTarget "IBMWeatherSensor" */;
+			buildPhases = (
+				002661D2D0964CDC99E93951 /* Check Pods Manifest.lock */,
+				3A8F59C519A52C420016D49D /* Sources */,
+				3A8F59C619A52C420016D49D /* Frameworks */,
+				3A8F59C719A52C420016D49D /* Resources */,
+				80A1DB54E25B46BC80440853 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IBMWeatherSensor;
+			productName = IBMWeatherSensor;
+			productReference = 3A8F59C919A52C420016D49D /* IBMWeatherSensor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A8F59C119A52C420016D49D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = mallocmedia;
+				TargetAttributes = {
+					3A8F59C819A52C420016D49D = {
+						DevelopmentTeam = 3E6BQ2LVL2;
+					};
+				};
+			};
+			buildConfigurationList = 3A8F59C419A52C420016D49D /* Build configuration list for PBXProject "IBMWeatherSensor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A8F59C019A52C420016D49D;
+			productRefGroup = 3A8F59CA19A52C420016D49D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A8F59C819A52C420016D49D /* IBMWeatherSensor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A8F59C719A52C420016D49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8F59E519A52C420016D49D /* Images.xcassets in Resources */,
+				3A8F59D719A52C420016D49D /* InfoPlist.strings in Resources */,
+				3A8F59E019A52C420016D49D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		002661D2D0964CDC99E93951 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		80A1DB54E25B46BC80440853 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A8F59C519A52C420016D49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8F5A1919A534560016D49D /* UIColor+RandomColor.m in Sources */,
+				3A8F5A1819A534560016D49D /* NSDictionary+NilValue.m in Sources */,
+				3A8F5A1219A533890016D49D /* WoIBMNetworking.m in Sources */,
+				3AF014EE19A53199005EE618 /* WoIBMDataController.m in Sources */,
+				3A8F59D919A52C420016D49D /* main.m in Sources */,
+				3A8F5A1E19A5359D0016D49D /* WoIBMForecast.m in Sources */,
+				3A8F5A0F19A532190016D49D /* WoIBMError.m in Sources */,
+				3A8F5A2119A537400016D49D /* WoIBMSearchRequestTC.m in Sources */,
+				3A8F5A2719A6E50E0016D49D /* WoIBMForecastDay.m in Sources */,
+				3A8F5A2419A53B7F0016D49D /* WoIBMForecastVC.m in Sources */,
+				3A8F5A0C19A532040016D49D /* WoIBMModel.m in Sources */,
+				3A8F59DD19A52C420016D49D /* GBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A8F59D519A52C420016D49D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A8F59D619A52C420016D49D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3A8F59DE19A52C420016D49D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A8F59DF19A52C420016D49D /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3A8F59F419A52C420016D49D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A8F59F519A52C420016D49D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A8F59F919A52C420016D49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3A8F59FA19A52C420016D49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A8F59FC19A52C420016D49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C02B7E71443E42458386E30E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IBMWeatherSensor/IBMWeatherSensor-Prefix.pch";
+				INFOPLIST_FILE = "IBMWeatherSensor/IBMWeatherSensor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3A8F59FD19A52C420016D49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C02B7E71443E42458386E30E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IBMWeatherSensor/IBMWeatherSensor-Prefix.pch";
+				INFOPLIST_FILE = "IBMWeatherSensor/IBMWeatherSensor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A8F59C419A52C420016D49D /* Build configuration list for PBXProject "IBMWeatherSensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A8F59F919A52C420016D49D /* Debug */,
+				3A8F59FA19A52C420016D49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A8F59FB19A52C420016D49D /* Build configuration list for PBXNativeTarget "IBMWeatherSensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A8F59FC19A52C420016D49D /* Debug */,
+				3A8F59FD19A52C420016D49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A8F59C119A52C420016D49D /* Project object */;
+}
